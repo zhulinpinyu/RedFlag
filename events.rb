@@ -1,14 +1,22 @@
-def monthly_sales
-  110 #Todo
+setup do
+  puts "Setting up sky"
+  @sky_height = 100
 end
 
-target_sales = 100
-
-event "monthly sales are suspiciously high" do
-  monthly_sales > target_sales
+setup do
+  puts "Setting up mountains"
+  @mountains_height = 200
 end
 
-event "monthly sales are abysmally low" do
-  monthly_sales < target_sales
+event "the sky is falling" do
+  @sky_height < 300
+end
+
+event "it's getting closer" do
+  @sky_height < @mountains_height
+end
+
+event "whoops... too late" do
+  @sky_height < 0
 end
 
